@@ -9,10 +9,13 @@ public class FacebookPOMLoginFailTest extends WebDriverDefault {
 
     @Test
     public void shouldNotLoginWithIncorrectCreds() {
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.enterUserLogin("wrong@login.com");
-        loginPage.enterUserPassword("wrongPassword");
+
+        LoginPage loginPage = new LoginPage(driver)
+            .enterUserLogin("wrong@login.com")
+            .enterUserPassword("wrongPassword");
+
         HomePage homePage = loginPage.submitLoginCredentials();
         assert (!homePage.checkIfLoginSucceed());
+
     }
 }
